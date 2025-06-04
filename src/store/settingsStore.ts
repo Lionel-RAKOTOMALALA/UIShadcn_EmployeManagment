@@ -1,6 +1,18 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+export const LANGUAGES = [
+  { code: 'fr', label: 'Français', icon: '🇫🇷' },
+  { code: 'en', label: 'English', icon: '🇬🇧' },
+  { code: 'es', label: 'Español', icon: '🇪🇸' }
+] as const;
+
+export const CURRENCIES = [
+  { code: 'EUR', symbol: '€', label: 'Euro', icon: '€' },
+  { code: 'USD', symbol: '$', label: 'US Dollar', icon: '$' },
+  { code: 'GBP', symbol: '£', label: 'British Pound', icon: '£' }
+] as const;
+
 interface UserProfile {
   name: string;
   email: string;
@@ -18,6 +30,8 @@ interface SettingsState {
   updateLanguage: (language: string) => void;
   toggleEmailNotifications: () => void;
   updatePassword: (oldPassword: string, newPassword: string) => Promise<void>;
+  setLanguage: (language: string) => void;
+  setCurrency: (currency: string) => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -70,7 +84,11 @@ export const useSettingsStore = create<SettingsState>()(
           });
           throw error;
         }
-      }
+      },
+
+      setLanguage: (language: string) => set({ language }),
+
+      setCurrency: (currency: string) => set({ currency })
     }),
     {
       name: 'settings-storage',

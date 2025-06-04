@@ -1,5 +1,5 @@
 {
-  "name": "visitor-management-system",
+  "name": "employee-management-system",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,7 +9,8 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node server/index.js"
+    "server": "nodemon server/index.mjs",
+    "check-db": "node server/checkDatabase.mjs"
   },
   "dependencies": {
     "@sweetalert2/theme-dark": "^5.0.16",
@@ -43,6 +44,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
+    "nodemon": "^3.1.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",

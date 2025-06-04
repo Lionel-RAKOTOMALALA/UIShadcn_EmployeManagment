@@ -18,7 +18,6 @@ import Swal from 'sweetalert2';
 
 const Settings = () => {
   const { theme, toggleTheme } = useThemeStore();
-  const { t } = useTranslation();
   const { 
     profile,
     currency,
@@ -32,6 +31,7 @@ const Settings = () => {
     toggleEmailNotifications,
     updatePassword
   } = useSettingsStore();
+  const { t } = useTranslation();
 
   const [formProfile, setFormProfile] = useState({
     name: profile.name,
@@ -207,7 +207,6 @@ const Settings = () => {
               <option value="EUR">Euro (€)</option>
               <option value="USD">Dollar US ($)</option>
               <option value="GBP">Livre Sterling (£)</option>
-              <option value="MGA">Ariary (Ar)</option>
             </select>
           </div>
           <div>
@@ -219,7 +218,7 @@ const Settings = () => {
             >
               <option value="fr">Français</option>
               <option value="en">English</option>
-              <option value="mg">Malagasy</option>
+              <option value="es">Español</option>
             </select>
           </div>
         </div>
